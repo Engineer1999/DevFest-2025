@@ -103,6 +103,4 @@ By the end of this workshop, you'll have:
 
 ---
 
-**Ready to build the future of AI agents? Let's get started! 🚀**
 
-*For any setup issues, contact: [workshop-email@domain.com]*
