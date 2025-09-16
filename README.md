@@ -41,8 +41,20 @@ source adk-workshop/bin/activate  # On Windows: adk-workshop\Scripts\activate
 # Install required packages
 pip install google-adk google-generativeai python-dotenv
 ```
+#### 4. **Install Docker**
+- **Windows**: Download [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- **macOS**: Download [Docker Desktop](https://www.docker.com/products/docker-desktop/) or `brew install --cask docker`
+- **Linux**: 
+  ```bash
+  # Ubuntu/Debian
+  sudo apt update
+  sudo apt install docker.io
+  sudo systemctl start docker
+  sudo systemctl enable docker
+  sudo usermod -aG docker $USER
+  # Log out and back in for group changes to take effect
+  ```
 
---------
 --------
 ## 🛠️ Workshop Agenda Preview
 
