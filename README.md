@@ -32,16 +32,7 @@ python3 --version
 gcloud --version
 ```
 
-#### 3. **Install ADK and Dependencies**
-```bash
-# Create a virtual environment (recommended)
-python -m venv adk-workshop
-source adk-workshop/bin/activate  # On Windows: adk-workshop\Scripts\activate
-
-# Install required packages
-pip install google-adk google-generativeai python-dotenv
-```
-#### 4. **Install Docker**
+#### 3. **Install Docker**
 - **Windows**: Download [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - **macOS**: Download [Docker Desktop](https://www.docker.com/products/docker-desktop/) or `brew install --cask docker`
 - **Linux**: 
@@ -55,6 +46,30 @@ pip install google-adk google-generativeai python-dotenv
   # Log out and back in for group changes to take effect
   ```
 
+#### 4. **Install ADK and Dependencies**
+```bash
+# Create a virtual environment (recommended)
+python -m venv adk-workshop
+source adk-workshop/bin/activate  # On Windows: adk-workshop\Scripts\activate
+
+# Install required packages
+pip install google-adk google-generativeai python-dotenv
+```
+
+#### 5. **Verify Your Setup**
+```bash
+# Test Docker installation
+docker --version
+docker run hello-world
+
+# Test ADK installation
+adk --version
+
+# Test gcloud CLI
+gcloud --version
+```
+
+--------
 --------
 ## 🛠️ Workshop Agenda Preview
 
@@ -75,6 +90,50 @@ pip install google-adk google-generativeai python-dotenv
 - Cloud Run configuration
 - Public URL deployment
 - Experiments
+
+---
+
+## 🚀 Deployment Steps
+
+### **Environment Variables Setup**
+Before deploying, you'll need to set up the following environment variables:
+
+```bash
+# Set your Google Cloud project ID
+export GOOGLE_CLOUD_PROJECT="your-project-id"
+
+# Set your preferred region
+export GOOGLE_CLOUD_LOCATION="us-central1"
+
+# Set your service name
+export SERVICE_NAME="stock-analyzer-service"
+
+# Set your app name
+export APP_NAME="stock-analyzer"
+
+# Set the path to your agent file
+export AGENT_PATH="./agent.py"
+```
+
+### **Deploy to Cloud Run**
+Use the following command to deploy your multi-agent stock analyzer to Google Cloud Run:
+
+```bash
+sudo adk deploy cloud_run \
+--project=$GOOGLE_CLOUD_PROJECT \
+--region=$GOOGLE_CLOUD_LOCATION \
+--service_name=$SERVICE_NAME \
+--app_name=$APP_NAME \
+--with_ui \
+$AGENT_PATH
+```
+
+### **Post-Deployment**
+After successful deployment:
+1. You'll receive a public URL for your deployed service
+2. The `--with_ui` flag enables a web interface for easy interaction
+3. Test your deployment by accessing the provided URL
+4. Monitor your service in the Google Cloud Console
 
 ---
 
@@ -103,4 +162,4 @@ By the end of this workshop, you'll have:
 
 ---
 
-
+**Ready to build the future of AI agents? Let's get started! 🚀**
