@@ -1,6 +1,0 @@
-protobuf
-python-dotenv
-google-generativeai
-google-adk
-gunicorn
-flask
